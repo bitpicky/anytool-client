@@ -3,11 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { getTables } from './endpoints';
 import AnyTable from './AnyTable';
 import 'antd/dist/antd.css';
+import { useRecoilState } from 'recoil';
+import { selectedTable } from './atoms';
 
 const App = () => {
   const [tablesLoading, setTablesLoading] = useState(false)
   const [tables, setTables] = useState([])
-  const [selected, setSelected] = useState(null)
+  const [selected, setSelected] = useRecoilState(selectedTable);
   const onTableChange = (ev: any) => {
     setSelected(ev.value);
   }

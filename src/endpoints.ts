@@ -28,3 +28,16 @@ export const getTable = async (tableName: string) => {
 
   return response.data;
 }
+
+export const updateTable = async (payload: any) => {
+  const response = await axios({
+    method: 'PUT',
+    url: 'http://localhost:8000/update_table',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    data: payload
+  });
+
+  return response.data;
+}
